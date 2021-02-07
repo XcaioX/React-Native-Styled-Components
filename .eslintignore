@@ -1,0 +1,7 @@
+node_modules
+**/*.js
+/*.js
+build
+android
+ios
+__test__
