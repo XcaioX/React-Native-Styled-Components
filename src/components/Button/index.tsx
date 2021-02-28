@@ -1,14 +1,14 @@
-import React from 'react'
-import { RectButtonProperties } from 'react-native-gesture-handler'
+import React from 'react';
+import { RectButtonProperties } from 'react-native-gesture-handler';
 
-import { ButtonText, Container } from './styles'
+import { ButtonText, Container } from './styles';
 
-type ButtonProps = RectButtonProperties
+type ButtonProps = RectButtonProperties;
 
 export const Button: React.FC<ButtonProps> = ({ children, ...rest }) => {
   return (
     <Container {...rest}>
       <ButtonText>{children}</ButtonText>
     </Container>
-  )
-}
+  );
+};

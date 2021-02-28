@@ -6,6 +6,7 @@ import { Button } from '../../components/Button';
 import { Container } from './styles';
 import { useAuth } from '../../hooks/auth';
 import Input from '../../components/Input';
+import { signUpSchema } from '../../validators/signUp';
 
 export const SignUp: React.FC = () => {
   const { signUp } = useAuth();
@@ -13,6 +14,10 @@ export const SignUp: React.FC = () => {
 
   const handleSignIn = useCallback(async (data, { reset }) => {
     try {
+      await signUpSchema.validate(data, {
+        abortEarly: false,
+      });
+
       await signUp(data);
 
       formRef.current.clearErrors({});

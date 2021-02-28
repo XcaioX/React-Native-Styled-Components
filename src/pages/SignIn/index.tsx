@@ -6,6 +6,7 @@ import { Button } from '../../components/Button';
 import { Container } from './styles';
 import { useAuth } from '../../hooks/auth';
 import Input from '../../components/Input';
+import { signInSchema } from '../../validators/signIn';
 
 export const SignIn: React.FC = () => {
   const formRef = useRef(null);
@@ -13,6 +14,10 @@ export const SignIn: React.FC = () => {
 
   const handleSignIn = useCallback(async (data, { reset }) => {
     try {
+      await signInSchema.validate(data, {
+        abortEarly: false,
+      });
+
       await signIn(data);
 
       formRef.current.clearErrors({});
