@@ -4,17 +4,16 @@ import Yup from 'yup';
 
 import { Button } from '../../components/Button';
 import { Container } from './styles';
-// import { useAuth } from '../../hooks/auth';
+import { useAuth } from '../../hooks/auth';
 import Input from '../../components/Input';
 
 export const SignIn: React.FC = () => {
   const formRef = useRef(null);
-  // const { signIn } = useAuth();
+  const { signIn } = useAuth();
 
   const handleSignIn = useCallback(async (data, { reset }) => {
     try {
-      // await signIn({ email: '', password: '' })
-      console.log(data);
+      await signIn(data);
 
       formRef.current.clearErrors({});
       reset();
